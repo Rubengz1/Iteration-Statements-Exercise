@@ -27,7 +27,7 @@
         //    - Method Signature: bool AreNumbersEqual(int num1, int num2)
         //    - Returns true if the numbers are equal, false otherwise.
         
-        public static void AreNumbersEqual(int num1, int num2)
+        public static bool AreNumbersEqual(int num1, int num2)
         {
             if (num1 == num2)
             {
@@ -37,12 +37,15 @@
             {
                 Console.WriteLine("False");
             }
+
+            return true;
+            
         }
         // 4. Write a method that checks if a given number is even or odd.
         //    - Method Signature: bool IsEven(int number)
         //    - Returns true if the number is even, false if odd.
 
-        public static void IsEven(int number)
+        public static bool IsEven(int number)
         {
             if (number % 2 == 0)
             {
@@ -52,12 +55,13 @@
             {
                 Console.WriteLine("false");
             }
+            return true;
         }
 
         // 5. Write a method that checks if a given number is positive or negative.
         //    - Method Signature: bool IsPositive(int number)
         //    - Returns true if the number is positive, false if negative.
-        public static void IsPositive(int number)
+        public static bool IsPositive(int number)
         {
             if (number > 0)
             {
@@ -72,7 +76,7 @@
             {
                 Console.WriteLine("false");
             }
-            
+            return true;
         }
 
         // 6. Write a method that reads the age of a candidate and determines if they are eligible to vote.
@@ -80,31 +84,38 @@
         //    - Returns true if the candidate can vote, false otherwise.
         //    - Hint: Use `int.Parse()` or the safer `int.TryParse()` for extra practice in handling user input.
 
-        public static void CanVote(int age)
+        public static bool CanVote(int age)
         {
             Console.WriteLine("How old are you?");
-            var canParse = int .TryParse(Console.ReadLine(), out int age);
+            var canParse = int.TryParse(Console.ReadLine(), out age);
+            
+            
             while (canParse == false)
             {
                 Console.WriteLine("Please enter a valid age");
-                canParse = int.TryParse(Console.ReadLine(), out int age);
+                canParse = int.TryParse(Console.ReadLine(), out age);
             }
+
+            bool canVote;
 
             if (age >= 18)
             {
                 Console.WriteLine("Can Vote");
+                canVote = true;
             }
             else
             {
                 Console.WriteLine("Cannot Vote");
+                canVote = false;
             }
+            return canVote;
         }
         // Heatin' Up Section:
         // 1. Write a method that checks if an integer (provided by the user) is within the range of -10 to 10.
         //    - Method Signature: bool IsInRange(int number)
         //    - Returns true if the number is within the range, false otherwise.
 
-        public static void IsInRange(int number)
+        public static bool IsInRange(int number)
         {
             Console.WriteLine("Type in a number");
             var canParse = int.TryParse(Console.ReadLine(), out number);
@@ -122,6 +133,9 @@
             {
                 Console.WriteLine("false");
             }
+
+            return true;
+            
         }
         // 2. Write a method that displays the multiplication table (from 1 to 12) for a given integer.
         //    - Method Signature: void DisplayMultiplicationTable(int number)
@@ -139,12 +153,16 @@
         // Use various test cases to ensure they work as expected.        
         static void Main(string[] args)
         {
-            PrintNumber();
-            PrintEveryThirdNumber();
-            AreNumbersEqual(2,5);
-            IsEven(101);
-            IsPositive(-2);
-            //CanVote(20);
+            PrintNumber();               
+            PrintEveryThirdNumber();     
+            AreNumbersEqual(5,-5); 
+            IsEven(10); 
+            IsPositive(0); 
+            CanVote(0);                  
+            
+            IsInRange(10);
+            DisplayMultiplicationTable(1);
+
         }
     }
 }
