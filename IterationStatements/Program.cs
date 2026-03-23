@@ -31,14 +31,13 @@
         {
             if (num1 == num2)
             {
-                Console.WriteLine("True");
+                return true;
             }
             else
             {
-                Console.WriteLine("False");
+                return false;
             }
-
-            return true;
+            
             
         }
         // 4. Write a method that checks if a given number is even or odd.
@@ -49,13 +48,12 @@
         {
             if (number % 2 == 0)
             {
-                Console.WriteLine("true");
+                return true;
             }
             else
             {
-                Console.WriteLine("false");
+                return false;
             }
-            return true;
         }
 
         // 5. Write a method that checks if a given number is positive or negative.
@@ -65,18 +63,13 @@
         {
             if (number > 0)
             {
-                Console.WriteLine("True");
-            }
-            else if (number == 0)
-            {
-                Console.WriteLine("Number is zero");
+                return true;
             }
 
             else
             {
-                Console.WriteLine("false");
+                return false;
             }
-            return true;
         }
 
         // 6. Write a method that reads the age of a candidate and determines if they are eligible to vote.
